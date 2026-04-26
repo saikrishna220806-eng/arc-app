@@ -53,10 +53,15 @@ export default function ChatPage() {
           throw new Error(data.error || "Something went wrong.");
         }
 
+
+        if (!data?.answer && !data?.result) {
+          throw new Error("Invalid API response");
+        }
+
         const aiMsg: ChatMessage = {
           id: crypto.randomUUID(),
           role: "assistant",
-          content: data.answer,
+          content: data.answer || data.result || "No response",
           timestamp: new Date(),
           confidence: data.confidence,
           bias: data.bias,
