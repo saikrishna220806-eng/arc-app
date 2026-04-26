@@ -1,6 +1,6 @@
 export async function generateFromGemini(prompt: string): Promise<string> {
   const res = await fetch(
-    "https://generativelanguage.googleapis.com/v1/models/gemini-1.0-pro:generateContent",
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent",
     {
       method: "POST",
       headers: {
