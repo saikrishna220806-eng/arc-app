@@ -121,7 +121,7 @@ function parseAgentCOutput(output: string): {
   };
 }
 
-export async function POST(req: NextRequest) {
+export async function POST(req: Request) {
   try {
     const body = await req.json();
     const { question } = body;
@@ -135,29 +135,24 @@ export async function POST(req: NextRequest) {
 
     if (!process.env.GEMINI_API_KEY) {
       return NextResponse.json(
-        { error: "GEMINI_API_KEY is not configured. Please add it to .env.local" },
+        { error: "GEMINI_API_KEY is not configured." },
         { status: 500 }
       );
     }
 
-    // ─── Agent A: Decision Maker ───────────────────────────────────────
-    const agentAPrompt = buildAgentAPrompt(question.trim());
-    const agentAOutput = await generateFromGemini(agentAPrompt);
+    // Agent A
+    const agentAOutput = await generateFromGemini(question);
     await sleep(4000);
 
-    // ─── Agent B: Bias Auditor ─────────────────────────────────────────
-    const agentBPrompt = buildAgentBPrompt(agentAOutput);
-    const agentBOutput = await generateFromGemini(agentBPrompt);
+    // Agent B
+    const agentBOutput = await generateFromGemini(agentAOutput);
     await sleep(4000);
 
-    // ─── Agent C: Final Judge ──────────────────────────────────────────
-    const agentCPrompt = buildAgentCPrompt(question.trim(), agentAOutput, agentBOutput);
-    const agentCOutput = await generateFromGemini(agentCPrompt);
+    // Agent C
+    const agentCOutput = await generateFromGemini(agentBOutput);
 
-    // ─── Parse Result ──────────────────────────────────────────────────
-    const result = parseAgentCOutput(agentCOutput);
+    return NextResponse.json({ result: agentCOutput }, { status: 200 });
 
-    return NextResponse.json(result, { status: 200 });
   } catch (err: unknown) {
     console.error("🔥 FULL API ERROR:", err);
 
@@ -169,15 +164,4 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ error: message }, { status: 500 });
   }
-} catch (err: unknown) {
-  console.error("🔥 FULL API ERROR:", err);
-
-  let message = "Something went wrong.";
-
-  if (err instanceof Error) {
-    message = err.message;
-  }
-
-  return NextResponse.json({ error: message }, { status: 500 });
 }
-
