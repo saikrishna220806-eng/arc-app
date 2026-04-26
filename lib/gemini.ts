@@ -13,7 +13,7 @@ export async function generateFromGemini(
   delayMs = 5000
 ): Promise<string> {
   // gemini-2.5-flash — has available quota on this API key
-  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
