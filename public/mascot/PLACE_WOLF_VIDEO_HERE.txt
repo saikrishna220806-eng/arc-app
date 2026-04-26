@@ -1,0 +1,12 @@
+Place your wolf mascot video here as:
+  wolf.mp4
+
+The video should be:
+- Looping animation of the wolf mascot
+- Autoplay + muted (required for browsers)
+- Any resolution works — it renders in a 110×110px circle
+
+The Mascot component (components/Mascot.tsx) handles:
+- Idle state → gentle float animation
+- Thinking state → bounce animation (while AI is processing)
+- Responding state → pop/scale animation (when answer arrives)

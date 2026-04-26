@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#00315d",
+                    "surface-container-low": "#161b29",
+                    "tertiary-fixed": "#6ffbbe",
+                    "outline": "#8c909f",
+                    "primary-fixed": "#d8e2ff",
+                    "on-tertiary-container": "#00311f",
+                    "on-surface-variant": "#c2c6d6",
+                    "error": "#ffb4ab",
+                    "secondary": "#a4c9ff",
+                    "on-surface": "#dee2f5",
+                    "tertiary": "#4edea3",
+                    "on-primary-fixed": "#001a42",
+                    "on-secondary-container": "#d6e5ff",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "surface-container-highest": "#303443",
+                    "surface-container": "#1a1f2d",
+                    "surface-dim": "#0e1320",
+                    "secondary-container": "#0267b8",
+                    "surface-container-lowest": "#090e1b",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "outline-variant": "#424754",
+                    "secondary-fixed": "#d4e3ff",
+                    "on-primary": "#002e6a",
+                    "inverse-on-surface": "#2b303e",
+                    "on-primary-fixed-variant": "#004395",
+                    "background": "#0e1320",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#dee2f5",
+                    "surface-variant": "#303443",
+                    "surface-tint": "#adc6ff",
+                    "primary-container": "#4d8eff",
+                    "surface-bright": "#343948",
+                    "error-container": "#93000a",
+                    "primary-fixed-dim": "#adc6ff",
+                    "on-tertiary": "#003824",
+                    "on-error": "#690005",
+                    "primary": "#adc6ff",
+                    "tertiary-container": "#00a572",
+                    "secondary-fixed-dim": "#a4c9ff",
+                    "on-secondary-fixed": "#001c39",
+                    "on-primary-container": "#00285d",
+                    "surface-container-high": "#252a38",
+                    "inverse-surface": "#dee2f5",
+                    "surface": "#0e1320",
+                    "on-secondary-fixed-variant": "#004883",
+                    "on-tertiary-fixed": "#002113",
+                    "inverse-primary": "#005ac2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { background-color: #0e1320; color: #dee2f5; font-family: 'Inter', sans-serif; }
+        .glass-panel { backdrop-filter: blur(30px); border: 1px solid rgba(140, 144, 159, 0.1); }
+        .liquid-light { background: linear-gradient(135deg, #adc6ff 0%, #4d8eff 100%); }
+        .trust-ring { 
+            background: conic-gradient(from 0deg, #4edea3 0%, #adc6ff 87%, transparent 87% 100%);
+            mask: radial-gradient(transparent 58%, white 60%);
+            -webkit-mask: radial-gradient(transparent 58%, white 60%);
+        }
+    </style>
+</head>
+<body class="flex min-h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen w-72 bg-[#0e1320] border-r border-white/10 p-4 gap-2 z-40 transition-all ease-in-out duration-300">
+<div class="flex items-center gap-3 mb-8 px-2">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="neurology">neurology</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-[#adc6ff] font-headline tracking-tighter">Neural Engine</h2>
+<p class="text-xs text-slate-400">V2.4 Ethereal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<button class="flex items-center gap-3 px-4 py-3 bg-white/10 text-[#adc6ff] rounded-xl font-medium font-['Inter'] text-sm transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                New Chat
+            </button>
+<button class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-white/5 hover:text-white rounded-xl font-medium font-['Inter'] text-sm transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+                History
+            </button>
+<button class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-white/5 hover:text-white rounded-xl font-medium font-['Inter'] text-sm transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+                Saved
+            </button>
+</nav>
+<div class="mt-auto flex flex-col gap-1">
+<button class="mb-4 liquid-light text-on-primary-container px-4 py-3 rounded-xl font-bold text-sm text-center active:scale-95 duration-200">
+                Upgrade Plan
+            </button>
+<button class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-white/5 hover:text-white rounded-xl font-medium font-['Inter'] text-sm transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </button>
+<button class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-white/5 hover:text-white rounded-xl font-medium font-['Inter'] text-sm transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+                Help
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col relative overflow-hidden bg-background">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0e1320]/80 backdrop-blur-xl bg-gradient-to-b from-[#0e1320] to-transparent shadow-[0_40px_60px_-15px_rgba(0,0,0,0.3)]">
+<div class="flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-8">
+<h1 class="text-xl font-bold tracking-tighter text-[#adc6ff] font-['Space_Grotesk'] md:hidden">Neural Engine</h1>
+<!-- Trust Meter Header Component -->
+<div class="hidden lg:flex items-center gap-4 bg-surface-container-low/50 px-4 py-2 rounded-full border border-outline-variant/10">
+<div class="relative w-8 h-8">
+<div class="absolute inset-0 rounded-full bg-surface-container-high"></div>
+<div class="absolute inset-0 trust-ring rounded-full"></div>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-outline">Decision Score</span>
+<span class="text-xs font-bold font-headline text-primary">87% Confidence</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-colors rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-colors rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/20">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of professional man with neutral expression in cinematic dramatic lighting with dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlyMHOoRyyvhx4rKagLt3KjwNJJYhSj0VPsTlV04aQaAQ15oHMRRBrCPI34aVF6EjyQ_-zY-XwZKIw2Ci3f19PNZXRzPmptXOf07DAND9h42IT0jcYtktNcUVmsDUqDb5mcORFUipNRyFVa7RYAcuMix4FOKqM-vomnYcl5MJc9Jxxff49yhw3v5dA_Uze-CfOqGWZIfKukRMOAYAxr7NGCc05W4nZB1_BtAMD8Cuys__jsnTn_W-3YJkcrJ5RUptZam5FqmxWbsHe"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Chat Stream Area -->
+<div class="flex-1 overflow-y-auto px-6 pt-24 pb-40 w-full max-w-4xl mx-auto space-y-12">
+<!-- User Prompt -->
+<div class="flex flex-col items-end gap-3 max-w-[85%] ml-auto">
+<div class="bg-surface-container-high px-6 py-4 rounded-3xl rounded-tr-sm text-on-surface text-sm leading-relaxed">
+                    Analyze the impact of quantum computing on cybersecurity.
+                </div>
+<div class="flex items-center gap-2 px-2">
+<span class="text-[10px] text-outline font-medium">YOU • 10:42 AM</span>
+</div>
+</div>
+<!-- AI Response -->
+<div class="flex flex-col items-start gap-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary shadow-lg">
+<span class="material-symbols-outlined text-sm" data-icon="bolt">bolt</span>
+</div>
+<span class="text-[10px] text-outline font-medium tracking-widest uppercase">Ethereal Intelligence</span>
+</div>
+<div class="glass-panel bg-surface-container-low/40 rounded-[2rem] p-8 w-full shadow-2xl relative overflow-hidden group">
+<!-- Decorative Light Leak -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 blur-[80px] rounded-full pointer-events-none"></div>
+<div class="space-y-8 relative">
+<div>
+<h3 class="text-primary font-headline text-lg font-bold mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+                                Overview
+                            </h3>
+<p class="text-on-surface/80 leading-relaxed font-body">
+                                Quantum computing represents a paradigm shift in processing power, utilizing qubits to solve calculations that would take classical supercomputers millennia. In the realm of cybersecurity, this creates a "Quantum Apocalypse" scenario where current RSA and ECC encryption standards become vulnerable.
+                            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container-highest/30 p-6 rounded-2xl border border-white/5">
+<h4 class="text-error font-headline font-semibold text-sm mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="warning">warning</span>
+                                    Threats
+                                </h4>
+<ul class="space-y-2 text-sm text-on-surface-variant">
+<li class="flex items-start gap-2">• Shor's algorithm threat to asymmetric keys</li>
+<li class="flex items-start gap-2">• Harvest Now, Decrypt Later (HNDL) attacks</li>
+<li class="flex items-start gap-2">• Vulnerability of existing blockchain ledgers</li>
+</ul>
+</div>
+<div class="bg-surface-container-highest/30 p-6 rounded-2xl border border-white/5">
+<h4 class="text-tertiary font-headline font-semibold text-sm mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
+                                    Opportunities
+                                </h4>
+<ul class="space-y-2 text-sm text-on-surface-variant">
+<li class="flex items-start gap-2">• Quantum Key Distribution (QKD)</li>
+<li class="flex items-start gap-2">• Evolution of Post-Quantum Cryptography</li>
+<li class="flex items-start gap-2">• Unbreakable entagled communication channels</li>
+</ul>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/10">
+<div class="flex items-center gap-2">
+<button class="p-2 text-outline hover:text-primary transition-colors hover:bg-white/5 rounded-lg">
+<span class="material-symbols-outlined text-lg" data-icon="content_copy">content_copy</span>
+</button>
+<button class="p-2 text-outline hover:text-primary transition-colors hover:bg-white/5 rounded-lg">
+<span class="material-symbols-outlined text-lg" data-icon="refresh">refresh</span>
+</button>
+<button class="p-2 text-outline hover:text-primary transition-colors hover:bg-white/5 rounded-lg">
+<span class="material-symbols-outlined text-lg" data-icon="share">share</span>
+</button>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] text-outline">Accuracy verified via Neural Mesh v2</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Typing Indicator -->
+<div class="flex items-center gap-2 text-outline px-4">
+<div class="flex gap-1.5">
+<span class="w-1.5 h-1.5 bg-primary/40 rounded-full"></span>
+<span class="w-1.5 h-1.5 bg-primary/60 rounded-full"></span>
+<span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+</div>
+<span class="text-[10px] font-medium tracking-widest uppercase ml-2">Synthesizing insights...</span>
+</div>
+</div>
+<!-- Floating Input Bar Section -->
+<div class="fixed bottom-0 left-0 md:left-72 right-0 p-6 flex flex-col items-center">
+<!-- Context Previews (Upload State) -->
+<div class="w-full max-w-3xl mb-4 flex justify-start">
+<div class="bg-surface-container-high border border-outline-variant/20 px-3 py-2 rounded-xl flex items-center gap-3 group hover:border-primary/40 transition-all duration-300">
+<div class="w-8 h-8 rounded bg-red-500/20 flex items-center justify-center text-red-400">
+<span class="material-symbols-outlined text-sm" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div class="flex flex-col pr-2">
+<span class="text-xs font-medium text-on-surface">system_architecture.pdf</span>
+<span class="text-[10px] text-outline">2.4 MB • Ready</span>
+</div>
+<button class="p-1 hover:bg-white/10 rounded-full text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+</button>
+</div>
+</div>
+<!-- The Bar -->
+<div class="w-full max-w-3xl glass-panel bg-surface-container-high/60 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)] rounded-full px-4 py-2 flex items-center gap-2 group transition-all duration-500 focus-within:shadow-[0_0_40px_rgba(173,198,255,0.1)] focus-within:bg-surface-container-high">
+<button class="p-2 text-outline hover:text-primary hover:bg-white/5 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+<button class="p-2 text-outline hover:text-primary hover:bg-white/5 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="attachment">attachment</span>
+</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-outline text-sm py-3 px-2 font-body" placeholder="Ask Ethereal anything..." type="text"/>
+<button class="liquid-light p-3 rounded-full flex items-center justify-center text-on-primary-container shadow-[0_0_20px_rgba(173,198,255,0.4)] active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="send" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+<p class="text-[10px] text-outline mt-3 text-center uppercase tracking-[0.2em] font-medium opacity-60">
+                Ethereal AI may produce inaccurate information. Verify critical data.
+            </p>
+</div>
+</main>
+<!-- Aesthetic Decorative Light Leak (Global) -->
+<div class="fixed top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] -z-10 rounded-full opacity-50"></div>
+<div class="fixed bottom-0 left-0 w-[600px] h-[600px] bg-secondary/5 blur-[150px] -z-10 rounded-full opacity-30"></div>
+</body></html>
