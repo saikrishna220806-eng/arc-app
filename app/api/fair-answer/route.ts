@@ -142,11 +142,11 @@ export async function POST(req: Request) {
 
     // Agent A
     const agentAOutput = await generateFromGemini(question);
-    await sleep(4000);
+    await sleep(500);
 
     // Agent B
     const agentBOutput = await generateFromGemini(agentAOutput);
-    await sleep(4000);
+    await sleep(500);
 
     // Agent C
     const agentCOutput = await generateFromGemini(agentBOutput);
