@@ -36,6 +36,7 @@ export async function generateFromGemini(
         await sleep(wait);
         continue;
       }
+      console.error("Gemini Error:", err);
       throw err;
     }
   }
