@@ -169,22 +169,15 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ error: message }, { status: 500 });
   }
+} catch (err: unknown) {
+  console.error("🔥 FULL API ERROR:", err);
+
+  let message = "Something went wrong.";
+
   if (err instanceof Error) {
-    if (err.message.includes("API_KEY_INVALID") || err.message.includes("API key not valid")) {
-      message = "Invalid Gemini API key. Please add a valid GEMINI_API_KEY to your .env.local file and restart the server. Get a free key at https://aistudio.google.com/app/apikey";
-    } else if (
-      err.message.includes("QUOTA_EXCEEDED") ||
-      err.message.includes("quota") ||
-      err.message.includes("429") ||
-      err.message.includes("RESOURCE_EXHAUSTED")
-    ) {
-      message = "Gemini API rate limit hit. The 3-agent pipeline uses 3 API calls — please wait 60 seconds and try again. Consider upgrading your Gemini API plan at https://aistudio.google.com";
-    } else if (err.message.includes("fetch") || err.message.includes("network")) {
-      message = "Network error connecting to Gemini API. Please check your internet connection.";
-    } else {
-      message = err.message;
-    }
+    message = err.message;
   }
+
   return NextResponse.json({ error: message }, { status: 500 });
 }
-}
+
