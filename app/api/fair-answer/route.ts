@@ -162,10 +162,6 @@ export async function POST(req: Request) {
       message = err.message;
     }
 
-    return NextResponse.json({
-      answer: "Demo: After analyzing multiple perspectives, the balanced decision is to proceed cautiously while considering fairness for all stakeholders.",
-      confidence: 92,
-      bias: "Low Risk",
-    });
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
