@@ -115,8 +115,8 @@ export default function ChatPage() {
   return (
     <div className="flex h-screen overflow-hidden bg-background">
       {/* ─── Decorative ambient blobs ─── */}
-      <div className="surface-glow-tr light-pulse" />
-      <div className="surface-glow-bl light-pulse" style={{ animationDelay: "3s" }} />
+      <div className="surface-glow-tr light-pulse"></div>
+      <div className="surface-glow-bl light-pulse" style={{ animationDelay: "3s" }}></div>
 
       {/* ─── Sidebar ─── */}
       <Sidebar onNewChat={handleNewChat} />
@@ -200,17 +200,21 @@ export default function ChatPage() {
                   );
                 }
 
-                re < AIResponseCard
-                key = { msg.id }
-                answer = { typeof msg.content === "string" ? msg.content : "No response" }
-                confidence = { msg.confidence || "N/A" }
-                bias = { msg.bias || "N/A" }
-                timestamp = { msg.timestamp }
-                  />
-                );
-              })}
+                messages.map((msg) => {
+                  return (
+                    <AIResponseCard
+                      key={msg.id}
+                      answer={typeof msg.content === "string" ? msg.content : "No response"}
+                      confidence={msg.confidence || "N/A"}
+                      bias={msg.bias || "N/A"}
+                      timestamp={msg.timestamp}
+                    />
+                  );
+                })
 
-              {isLoading && <TypingIndicator />}
+
+
+                { isLoading && <TypingIndicator /> }
             </div>
           )}
           <div ref={chatEndRef} />
