@@ -58,13 +58,20 @@ export default function ChatPage() {
           throw new Error("Invalid API response");
         }
 
+        const safeText =
+          typeof data.answer === "string"
+            ? data.answer
+            : typeof data.result === "string"
+              ? data.result
+              : "No response";
+
         const aiMsg: ChatMessage = {
           id: crypto.randomUUID(),
           role: "assistant",
-          content: data.answer || data.result || "No response",
+          content: safeText,
           timestamp: new Date(),
-          confidence: data.confidence,
-          bias: data.bias,
+          confidence: data?.confidence ?? 0,
+          bias: data?.bias ?? "Unknown",
         };
 
         setMessages((prev) => [...prev, aiMsg]);
