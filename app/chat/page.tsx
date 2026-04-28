@@ -200,13 +200,12 @@ export default function ChatPage() {
                   );
                 }
 
-                return (
-                  <AIResponseCard
-                    key={msg.id}
-                    answer={msg.content}
-                    confidence={msg.confidence || "N/A"}
-                    bias={msg.bias || "N/A"}
-                    timestamp={msg.timestamp}
+                re < AIResponseCard
+                key = { msg.id }
+                answer = { typeof msg.content === "string" ? msg.content : "No response" }
+                confidence = { msg.confidence || "N/A" }
+                bias = { msg.bias || "N/A" }
+                timestamp = { msg.timestamp }
                   />
                 );
               })}
