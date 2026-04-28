@@ -112,6 +112,7 @@ export default function ChatPage() {
     [handleSend]
   );
 
+
   return (
     <div className="flex h-screen overflow-hidden bg-background">
       {/* ─── Decorative ambient blobs ─── */}
